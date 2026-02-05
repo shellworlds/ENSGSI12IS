@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>ENSGSI12IS | Quantum AEM Electrolyzer Optimization</title>
     <meta name="description" content="Quantum-enhanced AEM Electrolyzer Optimization System with Swarm Intelligence">
     
@@ -50,6 +50,37 @@
             background: #ffffff;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Mobile Burger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .burger-menu span {
+            width: 2.5rem;
+            height: 0.3rem;
+            background: white;
+            margin: 0.3rem 0;
+            transition: all 0.3s ease;
+            border-radius: 0.2rem;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(0.6rem, 0.6rem);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(0.6rem, -0.6rem);
         }
 
         /* Header */
@@ -61,18 +92,21 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--quantum);
+            position: relative;
         }
 
         .header-left {
             display: flex;
             align-items: center;
             gap: 3rem;
+            flex: 1;
         }
 
         .logo {
             font-size: 2rem;
             font-weight: 600;
             letter-spacing: 0.1em;
+            white-space: nowrap;
         }
 
         .project-info {
@@ -83,7 +117,8 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .live-indicator {
@@ -99,6 +134,7 @@
             background: var(--success);
             border-radius: 50%;
             animation: pulse-animation 2s infinite;
+            flex-shrink: 0;
         }
 
         @keyframes pulse-animation {
@@ -113,6 +149,7 @@
             font-size: 1.4rem;
             font-weight: 500;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .quantum-score-badge:hover {
@@ -129,6 +166,7 @@
             text-decoration: none;
             color: var(--primary);
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .github-badge:hover {
@@ -144,6 +182,21 @@
             gap: 0;
             border-bottom: 1px solid var(--gray-300);
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            height: 0.5rem;
+        }
+
+        .nav-tabs::-webkit-scrollbar-track {
+            background: var(--gray-200);
+        }
+
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 0.5rem;
         }
 
         .nav-tab {
@@ -347,6 +400,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .phase-card:hover .output-item {
@@ -355,6 +410,8 @@
 
         .output-name {
             flex: 1;
+            min-width: 150px;
+            word-break: break-word;
         }
 
         .output-size {
@@ -575,6 +632,7 @@
             justify-content: center;
             gap: 3rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .footer-link {
@@ -622,7 +680,11 @@
             100% { width: 0%; }
         }
 
-        /* Responsive */
+        /* ===========================
+           RESPONSIVE DESIGN BREAKPOINTS
+           =========================== */
+
+        /* Large Tablets and Small Desktops (1400px and below) */
         @media (max-width: 1400px) {
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -633,7 +695,24 @@
             }
         }
 
+        /* Tablets (992px and below) */
         @media (max-width: 992px) {
+            html {
+                font-size: 58%;
+            }
+
+            .dashboard-header {
+                padding: 2rem 2rem;
+            }
+
+            .header-left {
+                gap: 2rem;
+            }
+
+            .header-right {
+                gap: 1.5rem;
+            }
+
             .overview-content,
             .github-content {
                 grid-template-columns: 1fr;
@@ -642,42 +721,317 @@
             .phase-outputs {
                 grid-template-columns: 1fr;
             }
-        }
 
-        @media (max-width: 768px) {
-            .dashboard-header {
-                flex-direction: column;
-                gap: 2rem;
-                padding: 2rem;
+            .dashboard-container {
+                padding: 2rem 2rem;
             }
 
             .nav-tabs {
                 padding: 0 2rem;
             }
 
+            .github-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Small Tablets and Large Phones (768px and below) */
+        @media (max-width: 768px) {
+            html {
+                font-size: 56%;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+
+            .dashboard-header {
+                flex-wrap: wrap;
+                padding: 1.5rem;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 1.5rem;
+            }
+
+            .project-info {
+                display: none;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-tabs {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 8rem 0 2rem 0;
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-tabs.active {
+                left: 0;
+            }
+
+            .nav-tab {
+                padding: 2rem 3rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                color: white;
+                text-align: left;
+            }
+
+            .nav-tab:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-tab.active {
+                background: var(--accent);
+                border-left: 4px solid var(--quantum);
+            }
+
             .dashboard-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .phase-card {
                 padding: 2rem;
             }
 
-            .metrics-grid,
+            .project-overview {
+                padding: 2rem;
+            }
+
+            .overview-text {
+                font-size: 1.4rem;
+            }
+
+            .graph-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .collaborators-grid {
+                grid-template-columns: 1fr;
+            }
+
             .github-stats {
                 grid-template-columns: 1fr;
+            }
+
+            .github-section,
+            .collaborators-section {
+                padding: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .dashboard-footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Mobile Phones (576px and below) */
+        @media (max-width: 576px) {
+            html {
+                font-size: 54%;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .quantum-score-badge,
+            .github-badge {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .live-indicator {
+                font-size: 1.1rem;
+            }
+
+            .metric-value {
+                font-size: 2.5rem;
+            }
+
+            .phase-title {
+                font-size: 1.8rem;
+            }
+
+            .gallery-title {
+                font-size: 2rem;
             }
 
             .graph-grid {
                 grid-template-columns: 1fr;
             }
 
-            .collaborators-grid {
-                grid-template-columns: 1fr;
+            .graph-container {
+                padding: 1.5rem;
+            }
+
+            .stat-item {
+                padding: 1rem;
+            }
+
+            .nav-tabs {
+                width: 85%;
+            }
+        }
+
+        /* Extra Small Devices (480px and below) */
+        @media (max-width: 480px) {
+            html {
+                font-size: 52%;
+            }
+
+            .dashboard-header {
+                padding: 1rem;
+            }
+
+            .header-left {
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .quantum-score-badge,
+            .github-badge {
+                font-size: 1.1rem;
+                padding: 0.7rem 1.2rem;
+            }
+
+            .dashboard-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .project-overview,
+            .phase-card,
+            .github-section,
+            .collaborators-section {
+                padding: 1.5rem;
+            }
+
+            .output-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .output-download {
+                align-self: flex-end;
+            }
+
+            .nav-tabs {
+                width: 90%;
+            }
+        }
+
+        /* Landscape Orientation Fixes for Mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .nav-tabs {
+                padding: 3rem 0 2rem 0;
+            }
+
+            .nav-tab {
+                padding: 1.5rem 3rem;
+            }
+        }
+
+        /* iOS Specific Fixes */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                -webkit-text-size-adjust: 100%;
+            }
+
+            .nav-tabs {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* Android Specific Fixes */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            select,
+            textarea,
+            input {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Mobile Menu Overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .metric-card,
+            .phase-card,
+            .nav-tab,
+            .collaborator-card,
+            .github-stat {
+                cursor: default;
+            }
+
+            .output-download,
+            .github-badge,
+            .footer-link {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
+
     <!-- Header -->
     <header class="dashboard-header">
         <div class="header-left">
+            <div class="burger-menu" id="burgerMenu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="logo">⚛ ENSGSI12IS</div>
             <div class="project-info">
                 <strong>Quantum AEM Electrolyzer Optimization</strong><br>
@@ -699,7 +1053,7 @@
     </header>
 
     <!-- Navigation Tabs -->
-    <nav class="nav-tabs">
+    <nav class="nav-tabs" id="navTabs">
         <button class="nav-tab active" onclick="showSection('overview')">Project Overview</button>
         <button class="nav-tab" onclick="showSection('phases')">Phase Outputs</button>
         <button class="nav-tab" onclick="showSection('graphs')">Visualizations</button>
@@ -1163,6 +1517,24 @@
             day: 'numeric'
         });
 
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navTabs = document.getElementById('navTabs');
+            const burgerMenu = document.getElementById('burgerMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            
+            navTabs.classList.toggle('active');
+            burgerMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navTabs.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
         // Tab switching functionality
         function showSection(sectionId) {
             // Hide all sections
@@ -1185,6 +1557,14 @@
                     tab.classList.add('active');
                 }
             });
+
+            // Close mobile menu after selection
+            if (window.innerWidth <= 768) {
+                toggleMobileMenu();
+            }
+
+            // Scroll to top on section change
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Initialize with overview section
@@ -1195,10 +1575,9 @@
             document.querySelectorAll('.metric-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const metricText = this.querySelector('.metric-label').textContent;
-                    if (metricText.includes('Phase 1')) showSection('phases');
-                    if (metricText.includes('Phase 2')) showSection('phases');
-                    if (metricText.includes('Phase 3')) showSection('phases');
-                    if (metricText.includes('Phase 4')) showSection('phases');
+                    if (metricText.includes('Phase')) {
+                        showSection('phases');
+                    }
                 });
             });
 
@@ -1220,6 +1599,32 @@
                     }, 2000);
                 }
             }, 4000);
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const navTabs = document.getElementById('navTabs');
+                const burgerMenu = document.getElementById('burgerMenu');
+                
+                if (navTabs.classList.contains('active') && 
+                    !navTabs.contains(e.target) && 
+                    !burgerMenu.contains(e.target)) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    const navTabs = document.getElementById('navTabs');
+                    const burgerMenu = document.getElementById('burgerMenu');
+                    const menuOverlay = document.getElementById('menuOverlay');
+                    
+                    navTabs.classList.remove('active');
+                    burgerMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         });
 
         // Smooth scrolling for anchor links
@@ -1238,6 +1643,16 @@
                 }
             });
         });
+
+        // Prevent zoom on double-tap for iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
