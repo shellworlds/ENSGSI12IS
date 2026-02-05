@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-02-05T22:43:02.782063",
+  "production_rate_mw_year": 10,
+  "simulation_days": 30,
+  "total_units": 3032,
+  "avg_defect_rate": 0.03084499068200143,
+  "avg_hydrogen_output": 199.5419005383142,
+  "daily_data": [
+    {
+      "date": "2026-02-05T22:43:02.782139",
+      "units_produced": 93,
+      "defect_rate": 0.014924203740237672,
+      "energy_consumption_mwh": 10.793371009865693,
+      "hydrogen_output_kg": 212.69892443833953,
+      "quality_score": 0.8776109776904751,
+      "downtime_minutes": 5
+    },
+    {
+      "date": "2026-02-06T22:43:02.782291",
+      "units_produced": 105,
+      "defect_rate": 0.02971525255264882,
+      "energy_consumption_mwh": 9.38005646263985,
+      "hydrogen_output_kg": 193.80024796180004,
+      "quality_score": 0.8761954279610765,
+      "downtime_minutes": 11
+    },
+    {
+      "date": "2026-02-07T22:43:02.782332",
+      "units_produced": 104,
+      "defect_rate": 0.04793593057920019,
+      "energy_consumption_mwh": 10.545146243049423,
+      "hydrogen_output_kg": 187.83001989943364,
+      "quality_score": 0.8649439673978421,
+      "downtime_minutes": 54
+    },
+    {
+      "date": "2026-02-08T22:43:02.782368",
+      "units_produced": 90,
+      "defect_rate": 0.026069596388844832,
+      "energy_consumption_mwh": 11.13648188720169,
+      "hydrogen_output_kg": 189.44256368385174,
+      "quality_score": 0.9757611654283976,
+      "downtime_minutes": 18
+    },
+    {
+      "date": "2026-02-09T22:43:02.782402",
+      "units_produced": 108,
+      "defect_rate": 0.04305414921000401,
+      "energy_consumption_mwh": 11.041273439710226,
+      "hydrogen_output_kg": 204.6509919918401,
+      "quality_score": 0.8774107136259935,
+      "downtime_minutes": 39
+    }
+  ]
+}

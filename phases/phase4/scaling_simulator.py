@@ -5,12 +5,14 @@ Simulates 100 MW/year scaling and federated learning.
 """
 import numpy as np
 import json
+import os
 from datetime import datetime
 
 class ScalingSimulator:
     def __init__(self):
         self.timestamp = datetime.now().isoformat()
-        self.output_dir = "phases/phase4/outputs/"
+        self.output_dir = "outputs/"
+        os.makedirs(self.output_dir + "scaling_data", exist_ok=True)
         self.target_capacity = 100  # MW/year
         
     def simulate_scaling(self, months=12):
@@ -42,7 +44,7 @@ class ScalingSimulator:
                 "final_capacity": data[-1]["capacity_mw_year"],
                 "total_capital_cost": sum(d["capital_cost_m"] for d in data),
                 "avg_efficiency_improvement": np.mean([d["efficiency_improvement"] for d in data]),
-                "monthly_data": data
+                "monthly_data": data[:6]  # First 6 months for preview
             }, f, indent=2)
         
         print(f"Scaling data saved: {json_filename}")

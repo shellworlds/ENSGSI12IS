@@ -5,12 +5,14 @@ Simulates 10 MW/year production line with quality control.
 """
 import numpy as np
 import json
+import os
 from datetime import datetime, timedelta
 
 class ProductionSimulator:
     def __init__(self):
         self.timestamp = datetime.now().isoformat()
-        self.output_dir = "phases/phase3/outputs/"
+        self.output_dir = "outputs/"
+        os.makedirs(self.output_dir + "production_data", exist_ok=True)
         self.production_rate = 10  # MW/year
         
     def simulate_production_day(self, days=30):
@@ -42,7 +44,7 @@ class ProductionSimulator:
                 "total_units": sum(d['units_produced'] for d in data),
                 "avg_defect_rate": np.mean([d['defect_rate'] for d in data]),
                 "avg_hydrogen_output": np.mean([d['hydrogen_output_kg'] for d in data]),
-                "daily_data": data
+                "daily_data": data[:5]  # First 5 days for preview
             }, f, indent=2)
         
         print(f"Production data saved: {json_filename}")

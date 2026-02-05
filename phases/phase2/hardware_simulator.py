@@ -6,16 +6,18 @@ Generates simulated hardware outputs for validation.
 import numpy as np
 import json
 import csv
+import os
 from datetime import datetime
 
 class HardwareSimulator:
     def __init__(self):
         self.timestamp = datetime.now().isoformat()
-        self.output_dir = "phases/phase2/outputs/"
+        self.output_dir = "outputs/"
+        os.makedirs(self.output_dir + "hardware_data", exist_ok=True)
         
     def simulate_pilot_system(self, duration_hours=24):
         print(f"Simulating pilot system for {duration_hours} hours...")
-        time_points = np.linspace(0, duration_hours, 1000)
+        time_points = np.linspace(0, duration_hours, 100)
         
         data = {
             "timestamp": [self._add_hours(self.timestamp, t) for t in time_points],

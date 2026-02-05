@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-02-05T22:43:03.117911",
+  "target_capacity_mw_year": 100,
+  "simulation_months": 12,
+  "final_capacity": 100,
+  "total_capital_cost": 601.5038708350866,
+  "avg_efficiency_improvement": 0.060757487806067094,
+  "monthly_data": [
+    {
+      "month": 1,
+      "capacity_mw_year": 16.666666666666668,
+      "capital_cost_m": 8.109825766079709,
+      "operational_cost_m": 1.302891622560849,
+      "efficiency_improvement": 0.0050437697954457605,
+      "digital_twin_accuracy": 0.9234368542178789,
+      "federated_learning_rounds": 10
+    },
+    {
+      "month": 2,
+      "capacity_mw_year": 33.333333333333336,
+      "capital_cost_m": 17.415025216363578,
+      "operational_cost_m": 2.058969150979138,
+      "efficiency_improvement": 0.02074898819909946,
+      "digital_twin_accuracy": 0.8741818191477111,
+      "federated_learning_rounds": 20
+    },
+    {
+      "month": 3,
+      "capacity_mw_year": 50.0,
+      "capital_cost_m": 24.339542938078296,
+      "operational_cost_m": 1.645195429966533,
+      "efficiency_improvement": 0.03390423210428061,
+      "digital_twin_accuracy": 0.895777246951213,
+      "federated_learning_rounds": 30
+    },
+    {
+      "month": 4,
+      "capacity_mw_year": 66.66666666666667,
+      "capital_cost_m": 24.174086097471267,
+      "operational_cost_m": 2.1124710939492735,
+      "efficiency_improvement": 0.04940019541850171,
+      "digital_twin_accuracy": 0.8866735110139752,
+      "federated_learning_rounds": 40
+    },
+    {
+      "month": 5,
+      "capacity_mw_year": 83.33333333333333,
+      "capital_cost_m": 41.49084894589622,
+      "operational_cost_m": 5.21687705169906,
+      "efficiency_improvement": 0.049061358069888705,
+      "digital_twin_accuracy": 0.9666073445051614,
+      "federated_learning_rounds": 50
+    },
+    {
+      "month": 6,
+      "capacity_mw_year": 100,
+      "capital_cost_m": 31.140398661465994,
+      "operational_cost_m": 4.039413848804799,
+      "efficiency_improvement": 0.04660166248098268,
+      "digital_twin_accuracy": 0.9502030989600789,
+      "federated_learning_rounds": 60
+    }
+  ]
+}

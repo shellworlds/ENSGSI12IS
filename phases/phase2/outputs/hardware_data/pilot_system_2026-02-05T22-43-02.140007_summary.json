@@ -1,0 +1,22 @@
+{
+  "simulation_timestamp": "2026-02-05T22:43:02.140007",
+  "duration_hours": 24.0,
+  "data_points": 100,
+  "sensors_simulated": [
+    "timestamp",
+    "temperature_c",
+    "pressure_bar",
+    "current_a",
+    "voltage_v",
+    "hydrogen_production_l_h",
+    "membrane_resistance_ohm",
+    "coolant_flow_l_min"
+  ],
+  "statistics": {
+    "avg_temperature": 62.02718551967927,
+    "avg_pressure": 30.906012367908726,
+    "avg_hydrogen_production": 11.216311311807559,
+    "max_voltage": 2.0,
+    "min_voltage": 1.652521256891751
+  }
+}
