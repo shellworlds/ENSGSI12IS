@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-02-05T22:11:18.488833",
+  "circuit_type": "AEM_Parameter_Optimization",
+  "circuit_info": {
+    "num_qubits": 4,
+    "depth": 7,
+    "gate_count": 20,
+    "qubit_mapping": {
+      "0": "temperature",
+      "1": "pressure",
+      "2": "flow_rate",
+      "3": "current_density"
+    }
+  },
+  "purpose": "Quantum optimization of AEM electrolyzer operating parameters",
+  "parameter_mapping": {
+    "qubit_0": "Operating temperature (optimization variable)",
+    "qubit_1": "System pressure (optimization variable)",
+    "qubit_2": "Electrolyte flow rate (optimization variable)",
+    "qubit_3": "Current density (optimization variable)"
+  },
+  "expected_outcomes": {
+    "ground_state": "Optimal parameter combination",
+    "excited_states": "Sub-optimal parameter sets",
+    "entanglement": "Parameter correlation analysis"
+  }
+}
